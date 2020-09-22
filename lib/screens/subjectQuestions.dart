@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'file:///C:/Flutter_Apps/question_storming/lib/screens/Answers.dart';
 
 class SubjectDetails extends StatefulWidget {
@@ -60,7 +61,6 @@ class _SubjectDetailsState extends State<SubjectDetails> {
 //          List questionAnswerList=snapshot.data.documents[index].data['Questions'];
           int itemCount =
               snapshot.data.documents[index].data['Questions']?.length ?? 0;
-          print(itemCount);
           return (itemCount == 0)
               ? Center(
                   child: Text(
@@ -96,7 +96,7 @@ class _SubjectDetailsState extends State<SubjectDetails> {
                                         fontSize: 17,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  (answerList[index][0].length != 0)
+                                  (answerList[index].length != 0)
                                       ? Column(
                                           children: <Widget>[
                                             Container(
@@ -105,7 +105,8 @@ class _SubjectDetailsState extends State<SubjectDetails> {
                                                 child: Text(
                                                     "${answerList[index][0].values.toList()[0]}")),
                                             Padding(
-                                              padding: const EdgeInsets.all(8.0),
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
                                               child: Container(
                                                 child: Text(
                                                     "- ${answerList[index][0].keys.toList()[0]}"),
@@ -125,8 +126,11 @@ class _SubjectDetailsState extends State<SubjectDetails> {
                                         onPressed: () {
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Answers(firebasedb: firestoreDb,name:name,topIndex: index,baseindex:this.index)));
+                                                  builder: (context) => Answers(
+                                                      firebasedb: firestoreDb,
+                                                      name: name,
+                                                      topIndex: index,
+                                                      baseindex: this.index)));
                                         },
                                       )
                                     ],
@@ -153,9 +157,7 @@ class _SubjectDetailsState extends State<SubjectDetails> {
                   onPressed: () async {
                     if (subjectDetailController.text != null)
                       await firestoreDb.document(name).setData({
-                        'Questions': {
-                          '${subjectDetailController.text}': [{}]
-                        }
+                        'Questions': {'${subjectDetailController.text}': []}
                       }, merge: true);
 //                  await  firestoreDb.document(name).setData({'Questions':[{'${subjectDetailController.text}':[]}]},merge:true);
                     subjectDetailController.clear();
