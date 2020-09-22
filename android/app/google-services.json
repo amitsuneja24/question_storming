@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1065515749075",
+    "firebase_url": "https://questionstrom-fb2a4.firebaseio.com",
+    "project_id": "questionstrom-fb2a4",
+    "storage_bucket": "questionstrom-fb2a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065515749075:android:f756d81a1ba10b2f348e26",
+        "android_client_info": {
+          "package_name": "com.example.questionstorming"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1065515749075-c6t9nte81lpftr721g1f7dtf6c798dd8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE1huxreKDiI4y-ehpxzpr67xX3mFyzAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1065515749075-c6t9nte81lpftr721g1f7dtf6c798dd8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
